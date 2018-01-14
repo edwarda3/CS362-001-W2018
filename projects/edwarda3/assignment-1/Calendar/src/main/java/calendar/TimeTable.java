@@ -45,8 +45,8 @@ public class TimeTable {
 	        GregorianCalendar nextDay = (GregorianCalendar) firstDay.clone();
 	        while (nextDay.before(lastDay)) {
 
+				nextDay.add(nextDay.DAY_OF_MONTH, 1);
 	            calDays.add(new CalDay(nextDay));
-	            nextDay.add(nextDay.DAY_OF_MONTH, 1);
 	        }
 	        
 	        //Retrieve the appts - <appt> 
@@ -60,7 +60,7 @@ public class TimeTable {
 			// For each day in the list, calculate the difference between the
 			// first day and the day of occurrence and add the appointment to
 			// the correct CalDay
-			int daysDifference = 0;
+			int daysDifference = 1;
 			nextDay = (GregorianCalendar) firstDay.clone();
 			Iterator<GregorianCalendar> itr = apptOccursOnDays.iterator();
 			while (itr.hasNext()) {
@@ -109,7 +109,7 @@ public class TimeTable {
 	            
 
 	            //Make sure that there is a limited number of recurrences
-	            for (int i = 0; i < appt.getRecurNumber()+1; i++) {
+	            for (int i = 0; i < appt.getRecurNumber(); i++) {
 	                
 	                //Add the day of occurrence to the list if it is after the first day
 	                if (!occurrenceDay.before(firstDay)) {
