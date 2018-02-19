@@ -63,7 +63,6 @@ public class TimeTableRandomTest {
 				//execute a random function
 				for (int i = 0; i < NUM_TESTS; i++) {
 					String methodName = TimeTableRandomTest.RandomSelectMethod(random);
-					System.out.println(methodName);
 					if(methodName.equals("addAppt ")){
 						Appt randAppt = new Appt(ValuesGenerator.getRandomIntBetween(random, 1, 11),
 								ValuesGenerator.getRandomIntBetween(random, 1, 59),
@@ -77,7 +76,7 @@ public class TimeTableRandomTest {
 					else if(methodName.equals("getApptRange")){
 						LinkedList<CalDay> cd = tt.getApptRange(lla,newyears,newyears2);
 					}
-					else if(methodName.equals("deleteAppts")){
+					else if(methodName.equals("deleteAppt")){
 						int cases = ValuesGenerator.getRandomIntBetween(random,0,2);
 						if( cases == 0) {
 							tt.deleteAppt(lla, appt);
