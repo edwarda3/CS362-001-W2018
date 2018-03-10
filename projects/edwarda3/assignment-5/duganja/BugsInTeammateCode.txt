@@ -1,0 +1,9 @@
+1. Found from TimeTableTest.java
+The TimeTable.deleteAppt() method returning null on a valid appt when it should return that appt.
+This bug’s source was actually somewhat difficult to spot, because it’s not randomly fulfilling one of the if statements to return null. 
+Instead, the bounds of the iteration are incorrect, meaning if the last appt is being deleted or there is only one appt it will fail.
+
+2. Found from Appt.java
+The appt was returning that this particular appt that should be invalid is valid.
+The appt’s “flag” that it was invalid was the hour was set to 24, when acceptable ranges should only be 0-23. 
+This edge case exposed a bug that 24 was being set as valid.
